@@ -1,6 +1,6 @@
 package gui;
 
-import java.awt.BorderLayout;
+
 import java.awt.Dimension;
 import java.awt.Image;
 
@@ -74,14 +74,14 @@ public class SimplePresentationScreen extends JFrame {
 		lblEmail.setBounds(12, 100, 56, 16);
 		tabInformation.add(lblEmail);
 		
-		JLabel lblGithubUrl = new JLabel("GitHub URL");
+		JLabel lblGithubUrl = new JLabel("Github URL");
 		lblGithubUrl.setBounds(12, 129, 70, 16);
 		tabInformation.add(lblGithubUrl);
 		
 		
 		lblNewLabel = new JLabel("");
 		ImageIcon icon = new ImageIcon(SimplePresentationScreen.class.getResource(studentData.getPathPhoto()));
-		Image scaleImage = icon.getImage().getScaledInstance(140, 140,Image.SCALE_SMOOTH);
+		Image scaleImage = icon.getImage().getScaledInstance(140, 140,Image.SCALE_AREA_AVERAGING);
 		icon = new ImageIcon(scaleImage);
 		lblNewLabel.setIcon(icon);
 		lblNewLabel.setBounds(447, 44, 140, 140);
@@ -90,10 +90,10 @@ public class SimplePresentationScreen extends JFrame {
 		lblDate = new JLabel("");
 		lblDate.setBounds(15, 210, 401, 16);
 		contentPane.add(lblDate);
-		DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-		DateTimeFormatter time = DateTimeFormatter.ofPattern("HH:mm:ss");
-		LocalDateTime now = LocalDateTime.now();
-		lblDate.setText("Esta ventana fue generada el "+date.format(now)+" a las "+time.format(now));
+		DateTimeFormatter hora = DateTimeFormatter.ofPattern("HH:mm:ss");
+		DateTimeFormatter fecha = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+		LocalDateTime ahora = LocalDateTime.now();
+		lblDate.setText("Esta ventana fue generada el "+fecha.format(ahora)+" a las "+hora.format(ahora));
 		
 		textLU = new JTextField();
 		textLU.setBounds(149, 10, 264, 22);
